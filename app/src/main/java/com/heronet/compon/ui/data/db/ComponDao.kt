@@ -1,6 +1,7 @@
 package com.heronet.compon.ui.data.db
 
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import com.heronet.compon.ui.model.Subject
 import kotlinx.coroutines.flow.Flow
@@ -9,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface ComponDao {
     @Query("SELECT * FROM subjects")
     fun getSubjects(): Flow<List<Subject>>
-
+    @Insert
+    suspend fun addSubject(subject: Subject)
 
 }

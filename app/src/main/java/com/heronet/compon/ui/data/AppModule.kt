@@ -16,7 +16,9 @@ object AppModule {
     @Singleton
     @Provides
     fun provideComponDb(@ApplicationContext context: Context) = Room
-        .databaseBuilder(context, ComponDb::class.java, "compon_db").build()
+        .databaseBuilder(context, ComponDb::class.java, "compon_db")
+        .fallbackToDestructiveMigration()
+        .build()
 
     @Singleton
     @Provides
